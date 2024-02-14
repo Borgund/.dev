@@ -1,13 +1,22 @@
 nav.menu {
-    position: fixed;
+    position: absolute;
+    height: 30px;
+    top: 0;
     left: 0;
     right: 0;
-    background-color: #222;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2rem);
     padding: 0.25rem;
     color: white;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    a {
+    div {
+        display: flex;
+    }
+
+    div>* {
         margin: 0 0.5rem;
         padding: 0.5rem;
         color: white;
@@ -15,7 +24,7 @@ nav.menu {
         border-radius: .2rem;
 
         &:hover {
-            background-color: #333;
+            background-color: rgba(255, 255, 255, 0.1);
         }
     }
 }

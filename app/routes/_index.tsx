@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { SocialLinks } from "~/components/socialLinks";
+import { Dock } from "~/components/dock";
 
 export const meta: MetaFunction = () => {
   return [
@@ -33,7 +33,7 @@ export default function Index() {
         alt=" of Adrian"
       />
       <section title="Social links">
-        <SocialLinks
+        <Dock
           links={[
             {
               title: "Github",
