@@ -1,0 +1,21 @@
+nav.menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #222;
+    padding: 0.25rem;
+    color: white;
+    display: flex;
+
+    a {
+        margin: 0 0.5rem;
+        padding: 0.5rem;
+        color: white;
+        text-decoration: none;
+        border-radius: .2rem;
+
+        &:hover {
+            background-color: #333;
+        }
+    }
+}

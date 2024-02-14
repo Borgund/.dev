@@ -8,8 +8,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import globalStyles from "./global.css";
+
+import { Menu } from "./components/menu";
 
 export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: globalStyles },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
@@ -23,6 +27,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <Menu />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
