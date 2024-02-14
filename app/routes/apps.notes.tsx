@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <>
-      <p>root index</p>
+      <p>Notes</p>
     </>
   );
 }

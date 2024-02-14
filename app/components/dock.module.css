@@ -1,59 +1,84 @@
-.dock ul {
-    padding: 0;
+.dock {
     position: absolute;
-    left: 0.5rem;
-    right: 0.5rem;
+    left: 0;
+    right: 0;
     bottom: 0;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(13px);
-    border: 1px solid rgba(255, 255, 255, 0.20);
-    border-radius: 1rem;
-    box-sizing: border-box;
-    width: auto;
 
-    .dockItem {
-        line-height: 0;
+    ul {
+        padding: 0 0.5rem 0.25rem 0.5rem;
+        margin-bottom: 0.5rem;
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        list-style-type: none;
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(13px);
+        border: 1px solid rgba(255, 255, 255, 0.20);
         border-radius: 1rem;
-        padding: .5rem;
-        margin: 0.6rem 0.4rem;
-        position: relative;
+        box-sizing: border-box;
 
-        &:hover {
-            transform: translateY(-1rem) scale(1.2);
-            margin: 0 0.6rem;
-            transition: transform ease 0.2s;
+        .dockItem {
+            line-height: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            margin: 0.6rem 0.4rem;
+            position: relative;
+
+            & .active::after {
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5);
+                content: "";
+                bottom: -0.75rem;
+                left: 50%;
+
+            }
+
+            &.background {
+                background-color: white;
+                padding: .5rem;
+
+                img {
+                    height: 2.35rem;
+                }
+            }
+
+            &:hover {
+                transform: translateY(-1rem) scale(1.2);
+                margin: 0 0.6rem;
+                transition: transform ease 0.2s;
+            }
+
+            &:hover::after,
+            &:focus-within::after {
+                background-color: rgba(0, 0, 0, 0.5);
+                color: rgba(255, 255, 255, 0.9);
+                border-radius: 4px;
+                bottom: 120%;
+                content: attr(data-tooltip);
+                display: block;
+                text-align: center;
+                padding: 1em;
+                position: absolute;
+                z-index: 1;
+            }
         }
 
-        &:hover::after,
-        &:focus-within::after {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: rgba(255, 255, 255, 0.9);
-            border-radius: 4px;
-            bottom: 120%;
-            content: attr(data-tooltip);
-            display: block;
-            text-align: center;
-            padding: 1em;
-            position: absolute;
-            z-index: 1;
+        img {
+            height: 3rem;
         }
-    }
 
-    img {
-        height: 3rem;
-    }
-
-    a:active {
-        filter: brightness(50%);
+        a:active {
+            filter: brightness(50%);
+        }
     }
 }

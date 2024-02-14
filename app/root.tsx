@@ -11,6 +11,7 @@ import {
 import globalStyles from "./global.css";
 
 import { Menu } from "./components/menu";
+import Footer from "./components/footer";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: globalStyles },
@@ -29,6 +30,7 @@ export default function App() {
       <body>
         <Menu />
         <Outlet />
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

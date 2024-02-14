@@ -1,0 +1,54 @@
+.windowControls {
+    display: flex;
+    justify-content: flex-start;
+    border: 1px solid pink;
+
+    button {
+        width: 0.8rem;
+        height: 0.8rem;
+        margin: auto 0.2rem;
+        border-radius: 50%;
+        font-size: 1rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 0.8rem;
+        border: none;
+        cursor: pointer;
+        font-size: 0.6rem;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    button.close {
+        background-color: rgb(240, 64, 65);
+        background-color: rgb(240, 64, 65);
+
+        &:hover::after {
+            content: "\2715";
+        }
+    }
+
+    button.minimize {
+        background-color: rgb(253, 180, 37);
+
+        &:hover::after {
+            content: "\2212";
+        }
+    }
+
+    button.maximize {
+        background-color: rgb(42, 201, 51);
+        transform: rotate(45deg);
+
+        &:hover::after {
+            content: "\2023";
+            transform: translateX(1px);
+        }
+
+        &:hover::before {
+            content: "\2023";
+            transform: rotate(180deg) translateY(.5px) translateX(1px);
+        }
+    }
+}
