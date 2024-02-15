@@ -53,9 +53,9 @@
             }
 
             &:hover {
+                transition: ease transform 0.6s, ease margin 0.6s;
                 transform: translateY(-1rem) scale(1.2);
                 margin: 0 0.6rem;
-                transition: transform ease 0.2s;
             }
 
             &:hover::after,
