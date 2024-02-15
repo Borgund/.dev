@@ -24,31 +24,30 @@
         background-color: rgb(240, 64, 65);
         background-color: rgb(240, 64, 65);
 
-        &:hover::after {
-            content: "\2715";
+        &:hover {
+            background-image: url("/button-close.png");
+            background-size: 0.8rem 0.8rem;
         }
     }
 
     button.minimize {
         background-color: rgb(253, 180, 37);
 
-        &:hover::after {
-            content: "\2212";
+        &:hover {
+            background-image: url("/button-minus.png");
+            background-size: 0.8rem 0.8rem;
         }
     }
 
     button.maximize {
         background-color: rgb(42, 201, 51);
-        transform: rotate(45deg);
 
-        &:hover::after {
-            content: "\2023";
-            transform: translateX(1px);
+        &:hover {
+            background-image: url("/button-fullscreen.png");
+            background-size: 0.9rem 0.9rem;
+            background-position: center;
         }
 
-        &:hover::before {
-            content: "\2023";
-            transform: rotate(180deg) translateY(.5px) translateX(1px);
-        }
+        &.fullscreen {}
     }
 }
