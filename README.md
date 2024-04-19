@@ -1,3 +1,5 @@
+![Deploy status](https://github.com/borgund/.dev/actions/workflows/fly.yml/badge.svg?branch=main)
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)
