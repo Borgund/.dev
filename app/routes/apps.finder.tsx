@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Borgund.dev, Adrian" },
+    { title: "Finder" },
     {
       name: "description",
       content: "My name is Adrian Borgund and i am a developer!",

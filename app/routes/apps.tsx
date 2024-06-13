@@ -6,7 +6,7 @@ import { Windowcontrols } from "~/components/windowcontrols";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Borgund.dev, Adrian" },
+    { title: "BorgundOS" },
     {
       name: "description",
       content: "My name is Adrian Borgund and i am a developer!",
@@ -19,7 +19,10 @@ export default function AppsIndex() {
   return (
     <>
       <main className={styles.app}>
-        <Windowcontrols on_close={() => navigate("/")} />
+        <Windowcontrols
+          on_close={() => navigate("/")}
+          on_minimize={() => navigate("/")}
+        />
         <Outlet />
       </main>
     </>
