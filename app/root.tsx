@@ -1,5 +1,6 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
+import posthog from "posthog-js";
 import {
   Links,
   LiveReload,
@@ -7,18 +8,48 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  json,
+  useLoaderData,
+  useLocation,
 } from "@remix-run/react";
 import globalStyles from "./global.css";
 
 import { Menu } from "./components/menu";
 import Footer from "./components/footer";
+import { useEffect } from "react";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: globalStyles },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
+export async function loader() {
+  return json({
+    POSTHOG_KEY: process.env.POSTHOG_KEY,
+    POSTHOG_HOST: process.env.POSTHOG_HOST,
+  });
+}
+
+function PosthogInit() {
+  const { POSTHOG_KEY, POSTHOG_HOST } = useLoaderData<typeof loader>();
+
+  useEffect(() => {
+    console.log("ENV:", POSTHOG_KEY, POSTHOG_HOST);
+    posthog.init(POSTHOG_KEY, {
+      api_host: POSTHOG_HOST,
+      person_profiles: "identified_only",
+      autocapture: false,
+    });
+  }, []);
+
+  return null;
+}
+
 export default function App() {
+  const location = useLocation();
+  useEffect(() => {
+    posthog.capture("$pageview");
+  }, [location]);
   return (
     <html lang="en">
       <head>
@@ -34,6 +65,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <PosthogInit />
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+import posthog from "posthog-js";
 import styles from "./windowcontrols.module.css";
 import useFullscreen from "~/hooks/useFullscreen";
 
@@ -30,7 +31,13 @@ export const Windowcontrols = ({
           className={
             styles.maximize + " " + (isFullscreen ? styles.fullscreen : "")
           }
-          onClick={on_maximize ?? (() => toggleFullScreen())}
+          onClick={
+            on_maximize ??
+            (() => {
+              toggleFullScreen();
+              posthog.capture("fullcreen toggle", { property: isFullscreen });
+            })
+          }
         ></button>
       </div>
     </>
