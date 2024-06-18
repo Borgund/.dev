@@ -25,8 +25,8 @@ export const links: LinksFunction = () => [
 
 export async function loader() {
   return json({
-    POSTHOG_KEY: process.env.POSTHOG_KEY,
-    POSTHOG_HOST: process.env.POSTHOG_HOST,
+    POSTHOG_KEY: process.env.POSTHOG_KEY ?? "",
+    POSTHOG_HOST: process.env.POSTHOG_HOST ?? "",
   });
 }
 
