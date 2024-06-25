@@ -31,11 +31,6 @@ RUN pnpm install --frozen-lockfile --prod=false
 # Copy application code
 COPY --link . .
 
-ARG POSTHOG_HOST
-ENV POSTHOG_HOST=${POSTHOG_HOST}
-ARG POSTHOG_KEY
-ENV POSTHOG_KEY=${POSTHOG_KEY}
-
 # Build application
 RUN pnpm run build
 
